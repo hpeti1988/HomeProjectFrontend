@@ -1,0 +1,81 @@
+<div class="container">
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form name="form" #UserForm="ngForm" (ngSubmit)="onSubmit(UserForm)" novalidate class="feedback-form" autocomplete="off">
+        <h3 class="form-group" style="padding-top: 20px; font-size: xx-large; text-align: center;">Registration form</h3>
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input type="text"
+                 id="lastName"
+                 class="form-control"
+                 name="lastName"
+                 #lastName="ngModel"
+                 placeholder="last name" 
+                 [(ngModel)]="user.lastName"
+                 required>
+        </div>
+        <div class="form-group">
+          <label for="firstName">First name</label>
+          <input type="text"
+                 id="firstName"
+                 class="form-control"
+                 name="firstName"
+                 #firstName="ngModel"
+                 placeholder="first name" 
+                 [(ngModel)]="user.firstName"
+                 required/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email address</label>
+          <input type="email"
+                 id="email"
+                 class="form-control"
+                 name="email"
+                 #email="ngModel"
+                 placeholder="email address" 
+                 [(ngModel)]="user.email" 
+                 required email/>
+                 <div *ngIf="email.invalid && email.touched" style="font-weight: bold; color:red;">
+                  Use proper email format.
+                </div>
+        </div>
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text"
+                 id="username"
+                 class="form-control"
+                 name="username"
+                 #username="ngModel"
+                 placeholder="username" 
+                 [(ngModel)]="user.username"
+                 minlength="3"
+                 required/>
+                 <div *ngIf="username.invalid && username.touched" style="font-weight: bold; color:red;">
+                  Username must be at least 3 characters long.
+                </div>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password"
+                 id="password"
+                 class="form-control"
+                 name="password"
+                 #password="ngModel"
+                 placeholder="password" 
+                 [(ngModel)]="user.password"
+                 required/>
+        </div>
+        <button type="submit" [disabled]="!UserForm.valid" class="btn btn-info pull-right">
+          <i class="fa fa-envelope-o"></i>
+          <span> Submit </span>
+        </button>
+        <button routerLink="/login" style="float: right;" class="btn btn-primary">
+          <i class="fa fa-envelope-o"></i>
+          <span> Back </span>
+        </button>
+      </form>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container-expand">
+  <app-navigation></app-navigation>
+  <table class="table table-dark" >
+    <thead>
+      <tr align="center" style="font-size: x-large;">
+        <th scope="col">Last name</th>
+        <th scope="col">First name</th>
+        <th scope="col">Email address</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr align="center" *ngFor="let item of users">
+          <td>{{item.lastName}}</td>
+          <td>{{item.firstName}}</td>
+          <td>{{item.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

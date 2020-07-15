@@ -1,0 +1,8 @@
+.container-expand{
+  opacity: 0.9;
+}
+
+.container-expand, .container, .table-borderless{
+  color: rgb(253, 248, 245);
+  font-weight: bolder;
+  }

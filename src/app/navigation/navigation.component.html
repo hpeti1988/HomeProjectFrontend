@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg">
+  <div class="container justify-content-center">
+    <ul class="nav navbar-nav flex-fill justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link">
+          <button class="btn btn-success" routerLink="/myRecipes">
+            My recipes
+          </button>
+        </a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link">
+          <button class="btn btn-success" routerLink="/recipeUpload">
+            Upload recipe
+          </button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <button class="btn btn-success" routerLink="/users">Uploaders</button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <button class="btn btn-success" routerLink="/recipes">
+            Recipes
+          </button>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link">
+          <button (click)="loggingOut()" class="btn btn-success">
+            Log out
+          </button>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,0 +1,132 @@
+<!-- <table class="table table-borderless">
+  <thead>
+    <tr align="center">
+      <th></th>
+      <th scope="col">Hozzávaló</th>
+      <th scope="col">Mennyiség</th>
+    </tr>
+  </thead>
+  <tbody align="center" *ngFor="let item of recipe.ingredients, let i = index">
+    <td><button (click)="deleteIngredient(i)" class="btn btn-danger">Törlés</button></td>
+      <td>  {{item.name}}  </td>
+      <td>{{item.amount}}</td>
+  </tbody>
+</table> -->
+
+<div class="container-expand">
+  <app-navigation></app-navigation>
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <h4 style="font-weight: bold;">Ingredients</h4>
+        <label style="font-weight: bold;" for="ingredientName">Ingredient</label>
+        <input
+          type="text"
+          id="ingredientName"
+          class="form-control"
+          name="ingredientName"
+          #ingredientName="ngModel"
+          placeholder="ingredient"
+          [(ngModel)]="ingredient.name"
+        />
+      </div>
+      <div class="form-group">
+        <label for="ingredientAmount">Amount</label>
+        <input
+          type="text"
+          id="ingredientAmount"
+          class="form-control"
+          name="ingredientAmount"
+          #ingredientAmount="ngModel"
+          placeholder="amount"
+          [(ngModel)]="ingredient.amount"
+        />
+        <br />
+        <button class="btn btn-primary" (click)="addIngredient()">
+          Add ingredient
+        </button>
+        <div>
+          <br />
+          <table class="table table-borderless">
+            <thead>
+              <tr align="center" style="font-weight: bold;">
+                <th></th>
+                <th scope="col">Ingredient</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody
+              align="center"
+              *ngFor="let item of recipe.ingredients; let i = index"
+              style="font-weight: bold;"
+            >
+              <td>
+                <button (click)="deleteIngredient(i)" class="btn btn-danger">
+                  Delete
+                </button>
+              </td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.amount }}</td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>
+
+<div class="container-expand">
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form
+        name="form"
+        #EditForm="ngForm"
+        (ngSubmit)="onSubmit(EditForm)"
+        novalidate
+        class="feedback-form"
+        autocomplete="off"
+      >
+        <div class="form-group">
+          <h4 style="font-weight: bold;">Recipe</h4>
+          <label for="name">Recipe name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            #name="ngModel"
+            placeholder="recipe name"
+            [(ngModel)]="recipe.name"
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Recipe description</label>
+          <textarea
+            id="summernote"
+            class="form-control"
+            name="description"
+            #description="ngModel"
+            placeholder="recipe description"
+            [(ngModel)]="recipe.description"
+          ></textarea>
+        </div>
+        <div>
+          <button type="submit" class="btn btn-info pull-right">
+            <i class="fa fa-envelope-o"></i>
+            <span> Submit changes </span>
+          </button>
+
+          <button style="float: right;" class="btn btn-danger" (click)="delete()">
+            Delete recipe
+          </button>
+        </div>
+        <br />
+        <button class="btn btn-primary" routerLink="/myRecipes">Back</button>
+      </form>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>

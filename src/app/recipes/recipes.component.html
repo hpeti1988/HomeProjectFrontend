@@ -1,0 +1,23 @@
+<div class="container-expand">
+  <div style="opacity: 0.9">
+    <app-navigation></app-navigation>
+  </div>
+  <table class="table table-dark" style="opacity: 0.9;">
+    <thead>
+      <tr align="center">
+        <th align="center" style="font-size: x-large;, font-weight: bold;">Recipe name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of recipes">
+      <tr>
+        <td align="center" style="font-weight: bold;">{{ item.name }}</td>
+        <td align="right">
+         <a [routerLink]="item.id">
+         <button class="btn btn-primary">View recipe</button>
+         </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

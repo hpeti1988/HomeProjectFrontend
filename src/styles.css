@@ -1,0 +1,13 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+
+
+html {
+  font-family: 'Lato', 'Arial', sans-serif;
+  font-weight: bold;
+  font-size: 20px;
+  text-rendering: optimizeLegibility;
+}
+input.ng-invalid.ng-dirty {
+  border-color: red;
+  box-shadow: 2px 2px 2px 2px red;
+}

@@ -1,0 +1,113 @@
+<div class="container-expand">
+  <div style="opacity: 0.9">
+    <app-navigation></app-navigation>
+  </div>
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <form
+        name="form"
+        #RecipeForm="ngForm"
+        (ngSubmit)="onSubmit()"
+        novalidate
+        class="feedback-form"
+        autocomplete="off"
+      >
+        <div class="form-group">
+          <h4 style="font-weight: bold;">Recipe</h4>
+          <label for="name">Recipe name</label>
+          <input
+            type="text"
+            id="name"
+            class="form-control"
+            name="name"
+            #name="ngModel"
+            placeholder="recipe name"
+            [(ngModel)]="recipe.name"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <label for="description">Recipe description</label>
+          <textarea
+            id="summernote"
+            class="form-control"
+            name="description"
+            #description="ngModel"
+            placeholder="recipe description"
+            [(ngModel)]="recipe.description"
+            required
+          ></textarea>
+        </div>
+
+        <button
+          type="submit"
+          [disabled]="!RecipeForm.valid"
+          class="btn btn-info pull-right"
+        >
+          <i class="fa fa-envelope-o"></i>
+          <span> Submit </span>
+        </button>
+      </form>
+      <br>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="offset-3"></div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <h4 style="font-weight: bold;">Ingredients</h4>
+        <label for="ingredientName">Ingredient</label>
+        <input
+          type="text"
+          id="ingredientName"
+          class="form-control"
+          name="ingredientName"
+          #ingredientName="ngModel"
+          placeholder="ingredient"
+          [(ngModel)]="ingredient.name"
+          autocomplete="off"
+        />
+      </div>
+      <div class="form-group">
+        <label for="ingredientAmount">Amount</label>
+        <input
+          type="text"
+          id="ingredientAmount"
+          class="form-control"
+          name="ingredientAmount"
+          #ingredientAmount="ngModel"
+          placeholder="amount"
+          [(ngModel)]="ingredient.amount"
+          autocomplete="off"
+        />
+        <br />
+        <button class="btn btn-primary" (click)="addIngredient()">
+          Add ingredient
+        </button>
+        <div>
+          <br>
+          <table class="table table-borderless">
+            <thead>
+              <tr align="center">
+                <th></th>
+                <th scope="col">Ingredient</th>
+                <th scope="col">Amount</th>
+              </tr>
+            </thead>
+            <tbody align="center" *ngFor="let item of recipe.ingredients, let i = index">
+              <td><button (click)="deleteIngredient(i)" class="btn btn-danger">Delete</button></td>
+                <td>  {{item.name}}  </td>
+                <td>{{item.amount}}</td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="offset-3"></div>
+  </div>
+</div>

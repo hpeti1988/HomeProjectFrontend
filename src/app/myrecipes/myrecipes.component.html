@@ -1,0 +1,23 @@
+<div class="container-expand">
+  <app-navigation></app-navigation>
+  <table class="table table-dark">
+    <thead>
+      <tr align="center">
+        <th align="center" style="font-size: x-large;">Recipe name</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let item of recipes">
+      <tr>
+        <td align="center" style="font-weight: bold;">{{ item.name }}</td>
+        <td align="right">
+         <a [routerLink]="item.id">
+         <button class="btn btn-primary">Manage</button>
+         </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+

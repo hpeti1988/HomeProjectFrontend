@@ -1,0 +1,17 @@
+.header{
+  padding-top: 15px;
+  /* padding-left: 30px; */
+  padding-bottom: 15px;
+  font-style: italic;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.title {
+  font-size: 70px;
+  padding-left: 10px;
+  color: rgb(253, 248, 245);
+  text-decoration: none;
+}
+
+
